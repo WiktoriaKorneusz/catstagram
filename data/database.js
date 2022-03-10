@@ -5,8 +5,8 @@ let database;
 
 let url = "mongodb://0.0.0.0:27017"
 
-if (process.env.MONgodb_URL){
-    url = process.env.MONgodb_URL;
+if (process.env.MONGODB_URL){
+    url = process.env.MONGODB_URL;
 }
 const connect = async () => {
     const client = await MongoClient.connect(url);
