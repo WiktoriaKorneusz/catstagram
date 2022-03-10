@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("includes/head.ejs") %>
+    </head>
+    <body>
+        <%- include("includes/nav.ejs") %>
+
+        <main class="container bg-white shadow round">
+            <h1>Comments</h1>
+            <p class="post">
+                <span class="primary bold"><%= post.name %></span>
+                <%= post.body %>
+            </p>
+            <hr />
+            <button id="loadComments" class="text-blue" data-postId="<%= post._id %>">Load comments</button>
+            <ul class="comments">
+            </ul>
+            <button id="reloadComments" class="text-blue" data-postId="<%= post._id %>">Reload</button>
+
+            <form class="comment-form" id="comment-form">
+                <h2>add comment</h2>
+                <input type="hidden" name="postId" value="<%= post._id %>" />
+                <div class="form-item">
+                    <input
+                        class="form-input"
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder=""
+                        maxlength="40"
+                        required
+                    />
+                    <label class="form-label" for="name"> Name </label>
+                </div>
+                <div class="form-item">
+                    <input
+                        class="form-input"
+                        type="text"
+                        name="comment"
+                        id="comment"
+                        placeholder=""
+                        required
+                    />
+                    <label class="form-label" for="comment"> comment </label>
+                </div>
+                <button
+                    class="btn bg-blue text-white round" id="submit-btn"
+                ><span class="material-icons-outlined">
+                    add
+                    </span>
+                    Add comment
+                    </button>
+            </form>
+        </main>
+        <script src="/scripts/comments.js"></script>
+    </body> 
+</html>

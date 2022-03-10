@@ -10,3 +10,4 @@ inputFile.addEventListener("change", () => {
     });
     reader.readAsDataURL(file);
 });
+

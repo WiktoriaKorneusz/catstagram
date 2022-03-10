@@ -8,12 +8,12 @@
 
         <main class="container bg-white shadow round">
             <h1>Add image</h1>
-            <form action="/add" method="POST" class="form">
+            <form action="/images" method="POST" class="form" enctype="multipart/form-data">
                 <img src="" alt="" id="preview">
                 <label for="image" class="upload text-white bg-blue round"><span class="material-icons-outlined">
                     file_upload
                     </span>Choose an Image</label>
-                <input type="file" accept=".jpg,.jpeg,.png" name="image" id="image" class="form-item"/>
+                <input type="file" accept=".jpg,.jpeg,.png" name="image" id="image" class="form-item" required/>
                 <div class="form-item">
                     <input
                         class="form-input"
