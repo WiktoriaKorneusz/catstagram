@@ -13,11 +13,10 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-app.use(express.static("posts"));
 
 app.use(routes);
 
 db.connectDb().then(() => {
     app.listen(PORT);
-    //console.log("http://localhost:3000/");
+    console.log("http://localhost:3000/");
 });

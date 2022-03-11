@@ -7,7 +7,7 @@ const ObjectId = mongodb.ObjectId;
 
 const storageConfig = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, "posts");
+        callback(null, "public/posts");
     },
     filename: (req, file, callback) => {
         callback(null, Date.now() + "-" + file.originalname);
