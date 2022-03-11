@@ -20,7 +20,7 @@
                         <div class="post-header">
                             <p class="primary bold"><%= post.name %></p>
                             <a
-                                href="/posts/<%= post.image %>"
+                                href="http://res.cloudinary.com/wkorneusz/image/upload/<%= post.image %>"
                                 target="_blank"
                                 download
                                 ><span class="material-icons-outlined">
@@ -30,7 +30,7 @@
                         </div>
                         <img
                             class="post-image"
-                            src="/posts/<%= post.image %>"
+                            src="http://res.cloudinary.com/wkorneusz/image/upload/<%= post.image %>"
                             alt="cat"
                         />
                         <a href="/posts/<%= post._id %> ">

@@ -3,8 +3,8 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "engines":{
-      "node": "17.x"
+    "engines": {
+        "node": "17.x"
     },
     "scripts": {
         "start": "nodemon app.js"
@@ -13,6 +13,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "cloudinary": "^1.28.1",
+        "dotenv": "^16.0.0",
         "ejs": "^3.1.6",
         "express": "^4.17.3",
         "mongodb": "^4.4.1",
