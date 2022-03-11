@@ -2,19 +2,18 @@
     "name": "catstagram",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "app.js",
     "engines": {
         "node": "17.x"
     },
     "scripts": {
-        "start": "node app.js"
+        "start": "nodemon app.js"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
         "cloudinary": "^1.28.1",
-        "dotenv": "^16.0.0",
         "ejs": "^3.1.6",
         "express": "^4.17.3",
         "mongodb": "^4.4.1",

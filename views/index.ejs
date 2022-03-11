@@ -29,9 +29,9 @@
                             >
                         </div>
                         <img
-                            class="post-image"
-                            src="http://res.cloudinary.com/wkorneusz/image/upload/<%= post.image %>"
+                            src="https://res.cloudinary.com/wkorneusz/image/upload/<%= post.image %>"
                             alt="cat"
+                            class="post-image"
                         />
                         <a href="/posts/<%= post._id %> ">
                             <div class="post-body">
@@ -41,9 +41,7 @@
                                     >
                                     <%= post.body %>
                                 </p>
-                                <p class="text-gray secondary">
-                                    View comments
-                                </p>
+                                <p class="text-gray secondary">View comments</p>
                                 <time class="text-gray secondary"
                                     ><%= post.date.toLocaleTimeString("en-US", {
                                     weekday: "long", year: "numeric", month:
