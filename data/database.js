@@ -3,9 +3,9 @@ const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
 let database;
 
-let url = "mongodb://0.0.0.0:27017"
+let url = "mongodb://0.0.0.0:27017";
 
-if (process.env.MONGODB_URL){
+if (process.env.MONGODB_URL) {
     url = process.env.MONGODB_URL;
 }
 const connect = async () => {
@@ -19,6 +19,7 @@ const getDb = () => {
     return database;
 };
 
+// exports database connection
 module.exports = {
     connectDb: connect,
     getDb: getDb,

@@ -4,6 +4,7 @@ const submitBtn = document.querySelector("#submit-btn");
 const commentForm = document.querySelector("#comment-form");
 const reloadBtn = document.querySelector("#reloadComments");
 
+// Render a comment
 const renderComment = (comment) => {
     const li = document.createElement("li");
     li.classList.add("comment");
@@ -15,6 +16,7 @@ const renderComment = (comment) => {
     comments.appendChild(li);
 };
 
+// Fetches comments.
 const fetchComments = async (e) => {
     try {
         const postId = e.target.dataset.postid;
@@ -40,6 +42,7 @@ const fetchComments = async (e) => {
     }
 };
 
+// inserts comment
 const submitComment = async (e) => {
     e.preventDefault();
     const data = [...commentForm.querySelectorAll("input")];

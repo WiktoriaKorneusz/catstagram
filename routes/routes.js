@@ -1,35 +1,29 @@
+// requires
 const express = require("express");
 const router = express.Router();
-// const multer = require("multer");
 const cloudinary = require("../utilities/cloudinary");
 const upload = require("../utilities/multer");
 const db = require("../data/database");
 const mongodb = require("mongodb");
 const ObjectId = mongodb.ObjectId;
 
-// const storageConfig = multer.diskStorage({
-//     destination: (req, file, callback) => {
-//         callback(null, "public/posts");
-//     },
-//     filename: (req, file, callback) => {
-//         callback(null, Date.now() + "-" + file.originalname);
-//     },
-// });
-
-// const upload = multer({ storage: storageConfig });
-
+// get routes
 router.get("/", async (req, res) => {
+    console.log(process.env.CLOUD_NAME)
     const posts = await db.getDb().collection("posts").find().toArray();
     res.render("index", { posts: posts });
 });
+
 router.get("/add-image", (req, res) => {
     res.render("add-image");
 });
+
 router.get("/posts/:id", async (req, res) => {
     const id = new ObjectId(req.params.id);
     const post = await db.getDb().collection("posts").findOne({ _id: id });
     res.render("comments", { post: post });
 });
+
 router.get("/comments/:id", async (req, res) => {
     const id = req.params.id;
     const comments = await db
@@ -39,23 +33,13 @@ router.get("/comments/:id", async (req, res) => {
         .toArray();
     res.json(comments);
 });
+
+// post routes
 router.post("/add-comment", async (req, res) => {
     const data = req.body;
     await db.getDb().collection("comments").insertOne(data);
     res.json({ message: "success" });
 });
-// router.post("/images", upload.single("image"), async (req, res) => {
-//     const uploadImage = req.file;
-//     const uploadData = req.body;
-//     const data = {
-//         ...uploadData,
-//         date: new Date(),
-//         image: uploadImage.filename,
-//     };
-//     console.log(data)
-//     // await db.getDb().collection("posts").insertOne(data);
-//     res.redirect("/");
-// });
 
 router.post("/images", upload.single("image"), async (req, res) => {
     try {
@@ -74,4 +58,5 @@ router.post("/images", upload.single("image"), async (req, res) => {
     }
 });
 
+// exports router
 module.exports = router;

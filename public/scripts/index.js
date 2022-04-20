@@ -1,5 +1,7 @@
 const inputFile = document.querySelector("#image");
 const previewImage = document.querySelector("#preview");
+
+// displays file input image
 inputFile.addEventListener("change", () => {
     const file = inputFile.files[0];
     if (!file) return;
@@ -10,4 +12,3 @@ inputFile.addEventListener("change", () => {
     });
     reader.readAsDataURL(file);
 });
-
